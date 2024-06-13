@@ -16,13 +16,13 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-from . import views
+from notes import views
 
 urlpatterns = [
     path("notes/", include("notes.urls")),
     path("admin/", admin.site.urls),
-    path('', views.notes_list, name='notes_list'),
-    path('note/<int:pk>/', views.note_detail, name='note_detail')
+    path('notes_list/', views.notes_list),
+    path('note/<int:pk>/', views.note_detail)
 ]
 
 

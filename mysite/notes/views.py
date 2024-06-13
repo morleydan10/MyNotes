@@ -1,4 +1,5 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
+from notes.models import Note
 
 from django.http import HttpResponse
 
@@ -10,4 +11,9 @@ def home(request):
 
 def notes_list(request):
     notes = Note.objects.all()
-    return render(request, 'notes/notes_list.html/', {'notes': notes})
+    return Htt
+
+def note_detail(request, pk):
+    note = get_object_or_404(Note, pk)
+    return render(request, 'notes/note_deatil.html/', {'note': note})
+    
