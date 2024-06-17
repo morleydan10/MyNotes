@@ -10,10 +10,12 @@ def home(request):
 
 
 def notes_list(request):
+
+    print(request)
     notes = Note.objects.all()
-    return Htt
+    return render(request, 'notes_list.html', {'notes': notes})
 
 def note_detail(request, pk):
-    note = get_object_or_404(Note, pk)
-    return render(request, 'notes/note_deatil.html/', {'note': note})
+    note = get_object_or_404(Note, pk=pk)
+    return render(request, 'note_detail.html', {'note': note})
     
