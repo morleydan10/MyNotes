@@ -3,16 +3,23 @@
 <head>
     <!-- <img height="12px" width="12px" src="../assets/lock_notes_logo.png" /> -->
     <title>Notes</title>
+    {% load bootstrap5 %}
+    {% bootstrap_css %}
+    {% bootstrap_javascript %}
+    {% bootstrap_messages %}
 </head>
-<body>
-    <h2><b>Hello, User</b></h2>
-    <h1>Notes</h1>
-    <ul>
-        {% for note in notes %}
-            <li>
-                <a href="{{note.pk}}/">{{note.title }}</a>
-            </li>
-        {% endfor %}
-    </ul>
+<body class="d-flex justify-content-center align-items-center" style="height: 100vh">
+    <root class="d-flex justify-content-center align-items-center bg-dark text-light" style="width: 75vw; height: 100vh">
+        <h2><b>Hello, User</b></h2>
+        <h1>Notes</h1>
+        <div class="card" style="width: 50vw">
+            <button class="btn btn-primary">Create Note</button>
+                {% for note in notes %}
+                        <div class="card" style="width: 10em">
+                            <a href="{{note.pk}}/" class="text-center">{{note.title }}</a>
+                        </div>
+                {% endfor %}
+        </div>
+    </root>
 </body>
 </html>
