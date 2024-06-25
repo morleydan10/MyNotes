@@ -1,14 +1,13 @@
-<!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <!-- <img height="12px" width="12px" src="../assets/lock_notes_logo.png" /> -->
-    <title>MyNotes</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Notes</title>
     {% load bootstrap5 %}
     {% load static %}
     {% bootstrap_css %}
     {% bootstrap_javascript %}
     {% bootstrap_messages %}
-    
 </head>
 <body>
     <nav class="d-flex flex-row justify-content-evenly align-items-center bg-light">
@@ -22,14 +21,7 @@
         </div>
     </nav>
     <root class="d-flex flex-column justify-content-center align-items-center bg-dark text-light" style="height: 100vh; width: 100vw;">
-        <div class="card d-flex flex-column justify-content-center align-items-center bg-secondary" style="width: 50vw">
-            <button class="btn btn-primary">Create Note</button>
-                {% for note in notes %}
-                        <div class="card" style="width: 50%">
-                            <a href="{{note.pk}}/" class="text-center">{{note.title }}</a>
-                        </div>
-                {% endfor %}
-        </div>
+
     </root>
 </body>
 </html>

@@ -13,7 +13,9 @@
         <h1>Notes</h1>
         <div class="d-flex flex-row justify-content-between align-items-center" style="width: 12%">
             <button class="btn btn-primary">Create Account</button>
-            <button class="btn btn-primary">Sign In</button>
+            <a href="/notes/login/">
+                <button class="btn btn-primary">Login</button>
+            </a>
         </div>
     </nav>
     <root class="d-flex flex-column justify-content-center align-items-center bg-dark text-light" style="height: 100vh; width: 100vw;">
@@ -31,7 +33,7 @@
                 </div>
             </div>
             <div>
-                <p class="fs-4">{{note.body}}</p>
+                <p class="fs-4 p-3">{{note.body}}</p>
             </div>
         </div>
     </root>
