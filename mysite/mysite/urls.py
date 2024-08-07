@@ -23,7 +23,7 @@ urlpatterns = [
     path("admin/", admin.site.urls),
 
     # user paths
-    path("notes/", views.notes_list),
+    path("notes/", views.notes_list, name='notes_list'),
     path('notes/<int:pk>/', views.note_detail),
     path('notes/login/', views.login_form),
     path('login_attempt/', views.login_attempt, name='login_attempt')
