@@ -1,5 +1,5 @@
-from django.shortcuts import render, get_object_or_404
-from django.contrib.auth import authenticate
+from django.shortcuts import render, get_object_or_404, redirect
+from django.contrib.auth import authenticate, login
 from notes.models import Note
 
 from django.http import HttpResponse
@@ -24,14 +24,17 @@ def login_form(request):
     return render(request, 'login_form.html')
 
 def login_attempt(request):
+    # Django docutmentation recommends using POST requests rather than a GET request because it is more difficult for hackers to break in using a POST request
+    if request.method == 'POST':
+        username = request.POST['username']
+        password = request.POST['password']
 
-    username = request['username']
-    password = request['password']
+        user = authenticate(username= username, password=password)
 
-    user = authenticate(username= username, password=password)
-
-    if user is not None:
-        pass
+        if user is not None:
+            login(request,user)
+            return redirect('notes/')
+        else:
+            return HttpResponse("Invalid login credentials.")
     else:
-        return ValueError("User not found.")
-    
+        return HttpResponse("Invalid request method. Must be POST.")
